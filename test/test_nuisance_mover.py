@@ -12,7 +12,7 @@ import IMP.pmi.samplers as samplers
 class XTransRestraint(IMP.Restraint):
 
     def __init__(self, m):
-        IMP.Restraint.__init__(self, m, "XTransRestraint %1%")
+        super().__init__(m, "XTransRestraint %1%")
 
     def unprotected_evaluate(self, accum):
         e = 0
@@ -27,6 +27,7 @@ class XTransRestraint(IMP.Restraint):
     def do_get_inputs(self):
         m = self.get_model()
         return IMP.get_particles(m, m.get_particle_indexes())
+
 
 class Tests(IMP.test.TestCase):
     def test_nuisance_mover(self):
